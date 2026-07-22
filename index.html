@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Generative Models Lab — four readable implementations spanning VAE, diffusion, discrete diffusion, and Flow Matching.">
+    <meta name="theme-color" content="#f2eee6">
+    <meta property="og:title" content="Generative Models Lab">
+    <meta property="og:description" content="From latent variables to probability flows — four focused generative-model repositories by CHU-ZP.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://raw.githubusercontent.com/CHU-ZP/FlowMatching/main/assets/results/class_grid_euler_050.png">
+    <title>Generative Models Lab · CHU-ZP</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#projects">Skip to projects</a>
+
+    <div class="page-glow page-glow-one" aria-hidden="true"></div>
+    <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="#top" aria-label="Generative Models Lab home">
+          <span class="brand-mark" aria-hidden="true">G</span>
+          <span class="brand-copy">
+            <strong>Generative Models</strong>
+            <small>Lab / CHU-ZP</small>
+          </span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#projects">Projects</a>
+          <a href="#comparison">Compare</a>
+          <a href="README.zh-CN.md">中文 README</a>
+          <a class="nav-cta" href="https://github.com/CHU-ZP" target="_blank" rel="noreferrer">GitHub ↗</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span> A hands-on research collection</p>
+          <h1 id="hero-title">Generative models,<br><em>made inspectable.</em></h1>
+          <p class="hero-lede">
+            Four focused PyTorch repositories that move from compact latent
+            variables to continuous probability flows—without hiding the
+            mathematics behind a framework.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore the collection</a>
+            <a class="button button-secondary" href="https://github.com/CHU-ZP" target="_blank" rel="noreferrer">Visit CHU-ZP ↗</a>
+          </div>
+
+          <ol class="sequence" aria-label="Project order">
+            <li><a href="#vae"><span>01</span><strong>VAE</strong></a></li>
+            <li><a href="#diffusion"><span>02</span><strong>Diffusion</strong></a></li>
+            <li><a href="#discrete-diffusion"><span>03</span><strong>Discrete Diffusion</strong></a></li>
+            <li><a href="#flow-matching"><span>04</span><strong>Flow Matching</strong></a></li>
+          </ol>
+        </div>
+
+        <div class="hero-visual" aria-label="A conceptual map from latent sampling to probability flow">
+          <div class="visual-grid" aria-hidden="true"></div>
+          <div class="orbit orbit-one" aria-hidden="true"></div>
+          <div class="orbit orbit-two" aria-hidden="true"></div>
+          <div class="latent-node node-z" aria-hidden="true">z</div>
+          <div class="latent-node node-x" aria-hidden="true">x</div>
+          <div class="latent-node node-t" aria-hidden="true">t</div>
+
+          <div class="formula formula-top">
+            <span>LATENT</span>
+            <code>z ∼ qφ(z|x)</code>
+          </div>
+          <div class="formula formula-middle">
+            <span>DENOISE</span>
+            <code>xₜ → x₀</code>
+          </div>
+          <div class="formula formula-bottom">
+            <span>FLOW</span>
+            <code>dx/dt = vθ(x,t)</code>
+          </div>
+
+          <p class="visual-caption">latent space <span>→</span> reverse process <span>→</span> vector field</p>
+        </div>
+      </section>
+
+      <section class="projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="shell">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow"><span></span> The collection</p>
+              <h2 id="projects-title">Four ways to generate.</h2>
+            </div>
+            <p>
+              Each repository isolates a different generative mechanism while
+              keeping models, objectives, and samplers small enough to trace.
+            </p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card card-vae" id="vae">
+              <a class="card-link" href="https://github.com/CHU-ZP/Modular-Vae" target="_blank" rel="noreferrer" aria-label="Open the VAE repository on GitHub">
+                <div class="project-preview">
+                  <img src="https://raw.githubusercontent.com/CHU-ZP/Modular-Vae/main/assets/figures/cnn_reconstructions.png" alt="Original and reconstructed MNIST digits from the VAE project">
+                  <span class="preview-label">MNIST · reconstructions</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-heading-row">
+                    <span class="project-number">01</span>
+                    <h3>VAE</h3>
+                    <span class="project-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <p class="repo-name">CHU-ZP / Modular-Vae</p>
+                  <p class="project-description">
+                    Learn a compact posterior and decode prior samples. Compare
+                    MLP, CNN, Transformer, beta-VAE, and a learned flow prior.
+                  </p>
+                  <ul class="tags" aria-label="VAE topics">
+                    <li>MNIST</li>
+                    <li>ELBO</li>
+                    <li>RealNVP prior</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card card-diffusion" id="diffusion">
+              <a class="card-link" href="https://github.com/CHU-ZP/Modular-Diffusion" target="_blank" rel="noreferrer" aria-label="Open the Diffusion repository on GitHub">
+                <div class="project-preview">
+                  <img src="https://raw.githubusercontent.com/CHU-ZP/Modular-Diffusion/main/results/cifar10_unet_cosine.cond.png" alt="Class-conditioned CIFAR10 samples from the modular diffusion project">
+                  <span class="preview-label">CIFAR10 · conditional</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-heading-row">
+                    <span class="project-number">02</span>
+                    <h3>Diffusion</h3>
+                    <span class="project-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <p class="repo-name">CHU-ZP / Modular-Diffusion</p>
+                  <p class="project-description">
+                    Compose pixel- and latent-space diffusion by swapping the
+                    denoiser, schedule, prediction target, and DDPM/DDIM sampler.
+                  </p>
+                  <ul class="tags" aria-label="Diffusion topics">
+                    <li>CIFAR10</li>
+                    <li>DDPM / DDIM</li>
+                    <li>CFG</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card card-discrete" id="discrete-diffusion">
+              <a class="card-link" href="https://github.com/CHU-ZP/Discrete-Diffusion" target="_blank" rel="noreferrer" aria-label="Open the Discrete Diffusion repository on GitHub">
+                <div class="project-preview">
+                  <img src="https://raw.githubusercontent.com/CHU-ZP/Discrete-Diffusion/main/results/mnist/generated_samples.png" alt="Class-conditioned quantized MNIST samples from discrete diffusion">
+                  <span class="preview-label">MNIST · categorical</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-heading-row">
+                    <span class="project-number">03</span>
+                    <h3>Discrete Diffusion</h3>
+                    <span class="project-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <p class="repo-name">CHU-ZP / Discrete-Diffusion</p>
+                  <p class="project-description">
+                    Keep diffusion categorical from end to end, across quantized
+                    MNIST pixels and binary ModelNet10 voxel grids.
+                  </p>
+                  <ul class="tags" aria-label="Discrete Diffusion topics">
+                    <li>Categorical</li>
+                    <li>2D + 3D</li>
+                    <li>Exact posterior</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+
+            <article class="project-card card-flow" id="flow-matching">
+              <a class="card-link" href="https://github.com/CHU-ZP/FlowMatching" target="_blank" rel="noreferrer" aria-label="Open the Flow Matching repository on GitHub">
+                <div class="project-preview">
+                  <img src="https://raw.githubusercontent.com/CHU-ZP/FlowMatching/main/assets/results/class_grid_euler_050.png" alt="Class-conditioned CIFAR10 samples from Flow Matching">
+                  <span class="preview-label">CIFAR10 · probability flow</span>
+                </div>
+                <div class="project-content">
+                  <div class="project-heading-row">
+                    <span class="project-number">04</span>
+                    <h3>Flow Matching</h3>
+                    <span class="project-arrow" aria-hidden="true">↗</span>
+                  </div>
+                  <p class="repo-name">CHU-ZP / FlowMatching</p>
+                  <p class="project-description">
+                    Learn a Rectified Flow velocity field and integrate it from
+                    Gaussian noise with an Euler or Heun ODE solver.
+                  </p>
+                  <ul class="tags" aria-label="Flow Matching topics">
+                    <li>Rectified Flow</li>
+                    <li>ODE</li>
+                    <li>Euler / Heun</li>
+                  </ul>
+                </div>
+              </a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="comparison-section shell" id="comparison" aria-labelledby="comparison-title">
+        <div class="comparison-intro">
+          <p class="eyebrow"><span></span> Shared perspective</p>
+          <h2 id="comparison-title">One lab.<br>Four routes.</h2>
+          <p>
+            The implementations differ in state space and generation dynamics,
+            but share one principle: expose the probabilistic mechanism in code.
+          </p>
+        </div>
+
+        <div class="comparison-list" role="list">
+          <a href="https://github.com/CHU-ZP/Modular-Vae" target="_blank" rel="noreferrer" role="listitem">
+            <span class="comparison-index">01</span>
+            <strong>VAE</strong>
+            <span>latent distribution</span>
+            <code>z → decoder → x</code>
+          </a>
+          <a href="https://github.com/CHU-ZP/Modular-Diffusion" target="_blank" rel="noreferrer" role="listitem">
+            <span class="comparison-index">02</span>
+            <strong>Diffusion</strong>
+            <span>Gaussian noise path</span>
+            <code>xₜ → denoiser → x₀</code>
+          </a>
+          <a href="https://github.com/CHU-ZP/Discrete-Diffusion" target="_blank" rel="noreferrer" role="listitem">
+            <span class="comparison-index">03</span>
+            <strong>Discrete Diffusion</strong>
+            <span>categorical path</span>
+            <code>tokensₜ → posterior → tokens₀</code>
+          </a>
+          <a href="https://github.com/CHU-ZP/FlowMatching" target="_blank" rel="noreferrer" role="listitem">
+            <span class="comparison-index">04</span>
+            <strong>Flow Matching</strong>
+            <span>probability path</span>
+            <code>noise → ODE → data</code>
+          </a>
+        </div>
+      </section>
+
+      <section class="closing shell" aria-label="Explore all repositories">
+        <p>Built to learn by opening the black box.</p>
+        <h2>Pick a model.<br>Follow the math into code.</h2>
+        <a class="button button-primary" href="https://github.com/CHU-ZP" target="_blank" rel="noreferrer">Explore on GitHub ↗</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>Generative Models Lab</p>
+        <p>VAE · Diffusion · Discrete Diffusion · Flow Matching</p>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>
