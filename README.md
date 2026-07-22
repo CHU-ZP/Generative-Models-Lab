@@ -47,7 +47,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <a href="https://github.com/CHU-ZP/Modular-Vae">
         <img src="https://raw.githubusercontent.com/CHU-ZP/Modular-Vae/main/assets/figures/cnn_reconstructions.png" alt="VAE reconstructions on MNIST" width="100%">
       </a>
-      <p>Five MNIST experiments compare MLP, CNN, Transformer, beta-VAE, and a learned flow prior behind one probabilistic interface.</p>
+      <p>Learns a compact latent distribution and a decoder that turns latent samples into data.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/Modular-Vae"><strong>Explore VAE →</strong></a></p>
     </td>
     <td width="50%" valign="top">
@@ -56,7 +56,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <a href="https://github.com/CHU-ZP/Modular-Diffusion">
         <img src="https://raw.githubusercontent.com/CHU-ZP/Modular-Diffusion/main/results/cifar10_unet_cosine.cond.png" alt="Conditional CIFAR10 samples from modular diffusion" width="100%">
       </a>
-      <p>Composable pixel- and latent-space diffusion on CIFAR10, with replaceable backbones, schedules, prediction targets, and samplers.</p>
+      <p>Learns to reverse a gradual Gaussian noising process, turning noise into data through repeated denoising.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/Modular-Diffusion"><strong>Explore Diffusion →</strong></a></p>
     </td>
   </tr>
@@ -67,7 +67,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <a href="https://github.com/CHU-ZP/Discrete-Diffusion">
         <img src="https://raw.githubusercontent.com/CHU-ZP/Discrete-Diffusion/main/results/mnist/generated_samples.png" alt="Quantized MNIST samples from discrete diffusion" width="100%">
       </a>
-      <p>A categorical diffusion engine that stays in the discrete state space for both quantized MNIST pixels and binary ModelNet10 voxels.</p>
+      <p>Learns to reverse a categorical corruption process while keeping every state discrete.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/Discrete-Diffusion"><strong>Explore Discrete Diffusion →</strong></a></p>
     </td>
     <td width="50%" valign="top">
@@ -76,7 +76,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <a href="https://github.com/CHU-ZP/FlowMatching">
         <img src="https://raw.githubusercontent.com/CHU-ZP/FlowMatching/main/assets/results/class_grid_euler_050.png" alt="Class-conditional CIFAR10 samples from Flow Matching" width="100%">
       </a>
-      <p>Rectified Flow on CIFAR10: learn a continuous velocity field and integrate it from Gaussian noise with Euler or Heun.</p>
+      <p>Learns a continuous velocity field that transports a simple noise distribution into the data distribution.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/FlowMatching"><strong>Explore Flow Matching →</strong></a></p>
     </td>
   </tr>
