@@ -45,7 +45,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <h3 align="center">01 · VAE</h3>
       <p align="center"><code>latent-variable model</code></p>
       <a href="https://github.com/CHU-ZP/Modular-Vae">
-        <img src="https://raw.githubusercontent.com/CHU-ZP/Modular-Vae/main/assets/figures/cnn_reconstructions.png" alt="VAE reconstructions on MNIST" width="100%">
+        <img src="assets/diagrams/vae.png" alt="VAE principle diagram showing latent sampling, decoding, and the training objective" width="100%">
       </a>
       <p>Learns a compact latent distribution and a decoder that turns latent samples into data.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/Modular-Vae"><strong>Explore VAE →</strong></a></p>
@@ -54,7 +54,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <h3 align="center">02 · Diffusion</h3>
       <p align="center"><code>continuous-state denoising</code></p>
       <a href="https://github.com/CHU-ZP/Modular-Diffusion">
-        <img src="https://raw.githubusercontent.com/CHU-ZP/Modular-Diffusion/main/results/cifar10_unet_cosine.cond.png" alt="Conditional CIFAR10 samples from modular diffusion" width="100%">
+        <img src="assets/diagrams/diffusion.png" alt="Diffusion principle diagram showing iterative denoising and noise-prediction training" width="100%">
       </a>
       <p>Learns to reverse a gradual Gaussian noising process, turning noise into data through repeated denoising.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/Modular-Diffusion"><strong>Explore Diffusion →</strong></a></p>
@@ -65,7 +65,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <h3 align="center">03 · Discrete Diffusion</h3>
       <p align="center"><code>categorical denoising</code></p>
       <a href="https://github.com/CHU-ZP/Discrete-Diffusion">
-        <img src="https://raw.githubusercontent.com/CHU-ZP/Discrete-Diffusion/main/results/mnist/generated_samples.png" alt="Quantized MNIST samples from discrete diffusion" width="100%">
+        <img src="assets/diagrams/discrete-diffusion.png" alt="Discrete Diffusion principle diagram showing a categorical reverse chain and clean-token prediction" width="100%">
       </a>
       <p>Learns to reverse a categorical corruption process while keeping every state discrete.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/Discrete-Diffusion"><strong>Explore Discrete Diffusion →</strong></a></p>
@@ -74,7 +74,7 @@ self-contained, so readers can jump directly to the method they want to study.
       <h3 align="center">04 · Flow Matching</h3>
       <p align="center"><code>probability flow</code></p>
       <a href="https://github.com/CHU-ZP/FlowMatching">
-        <img src="https://raw.githubusercontent.com/CHU-ZP/FlowMatching/main/assets/results/class_grid_euler_050.png" alt="Class-conditional CIFAR10 samples from Flow Matching" width="100%">
+        <img src="assets/diagrams/flow-matching.png" alt="Flow Matching principle diagram showing velocity-field integration and its training path" width="100%">
       </a>
       <p>Learns a continuous velocity field that transports a simple noise distribution into the data distribution.</p>
       <p align="center"><a href="https://github.com/CHU-ZP/FlowMatching"><strong>Explore Flow Matching →</strong></a></p>
