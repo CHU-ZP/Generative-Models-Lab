@@ -19,23 +19,25 @@ English | <a href="README.zh-CN.md">中文</a>
   <a href="https://github.com/CHU-ZP/FlowMatching"><strong>Flow Matching</strong></a>
 </p>
 
-This repository is the front door to four independent projects. It does not
-duplicate their source code: each project keeps its own history, environment,
-documentation, and experiments.
+Generative Models Lab is a hands-on study of four generative-model families.
+Each project starts from the probabilistic idea, follows it into a modular
+PyTorch implementation, and closes the loop with trained examples and generated
+results.
 
-## The Collection
+## Start Here
 
-The display names are normalized below even when the underlying GitHub
-repository uses a different slug.
+Follow the projects from `01` to `04` for a path from latent-variable modeling
+to iterative denoising and continuous-time transport. Each repository is also
+self-contained, so readers can jump directly to the method they want to study.
 
-| Order | Display name | Repository | State space | Generation route |
+| Step | Project | Data | Learned object | Generation |
 | :---: | --- | --- | --- | --- |
-| 01 | **VAE** | [`CHU-ZP/Modular-Vae`](https://github.com/CHU-ZP/Modular-Vae) | MNIST latent space | sample a latent, then decode |
-| 02 | **Diffusion** | [`CHU-ZP/Modular-Diffusion`](https://github.com/CHU-ZP/Modular-Diffusion) | CIFAR10 pixels and latents | reverse a Gaussian corruption path |
-| 03 | **Discrete Diffusion** | [`CHU-ZP/Discrete-Diffusion`](https://github.com/CHU-ZP/Discrete-Diffusion) | quantized pixels and binary voxels | reverse a categorical transition chain |
-| 04 | **Flow Matching** | [`CHU-ZP/FlowMatching`](https://github.com/CHU-ZP/FlowMatching) | CIFAR10 pixel space | integrate a learned velocity field |
+| 01 | [**VAE**](https://github.com/CHU-ZP/Modular-Vae) | MNIST | posterior, prior, and decoder | sample a latent and decode it |
+| 02 | [**Diffusion**](https://github.com/CHU-ZP/Modular-Diffusion) | CIFAR10 pixels and latents | noise, data, or velocity prediction | reverse a Gaussian corruption path |
+| 03 | [**Discrete Diffusion**](https://github.com/CHU-ZP/Discrete-Diffusion) | quantized MNIST and binary ModelNet10 voxels | clean-token probabilities | reverse a categorical transition chain |
+| 04 | [**Flow Matching**](https://github.com/CHU-ZP/FlowMatching) | CIFAR10 pixels | continuous velocity field | integrate an ODE from noise to data |
 
-## Projects
+## Explore the Projects
 
 <table>
   <tr>
@@ -80,7 +82,7 @@ repository uses a different slug.
   </tr>
 </table>
 
-## One Lab, Four Views
+## How the Methods Differ
 
 ```text
 VAE                 latent distribution  -> decoder
@@ -89,20 +91,19 @@ Discrete Diffusion  categorical path     -> exact discrete reverse chain
 Flow Matching       probability path     -> ODE integration
 ```
 
-Across the collection, mathematical components remain visible in the code and
-experiments change one part of the system at a time. The goal is to make the
-relationship between model, objective, and sampler easy to inspect.
+The comparison is not only architectural. Each method defines a different
+state space, training target, and route from a simple distribution to a sample.
+Reading the projects together makes those modeling choices explicit.
 
-## Website
+## What You Will Find
 
-[`index.html`](index.html) is a responsive version of this overview and can be
-served directly with GitHub Pages. After pushing the repository, select
-**Settings → Pages → Deploy from a branch → `main` / root**.
+Each repository includes:
 
-For a local preview:
+- a concise explanation of the underlying probability model;
+- small modules that correspond directly to the equations;
+- configuration-driven experiments and reproducible commands;
+- qualitative samples, quantitative results, and implementation notes;
+- English and Chinese documentation.
 
-```bash
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000`.
+Choose a project above to continue from the mathematical overview to the code
+and completed experiments.

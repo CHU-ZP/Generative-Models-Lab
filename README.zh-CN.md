@@ -19,20 +19,20 @@
   <a href="https://github.com/CHU-ZP/FlowMatching"><strong>Flow Matching</strong></a>
 </p>
 
-这个仓库是四个独立项目的统一入口，不会复制它们的源代码。每个项目继续保留自己的 Git 历史、运行环境、文档和实验结果。
+Generative Models Lab 是对四类生成模型的实践性学习。每个项目都从概率建模思想出发，将公式对应到模块化 PyTorch 实现，并通过完成的训练实验和生成结果把整个过程串联起来。
 
-## 项目索引
+## 从这里开始
 
-下面统一使用整洁的展示名称；实际 GitHub 仓库名可以保留原来的 slug。
+按照 `01` 到 `04` 阅读，可以从 latent-variable model 逐步走向迭代去噪和连续时间分布搬运。每个仓库也可以独立阅读，因此也可以直接进入最感兴趣的方法。
 
-| 顺序 | 展示名称 | 仓库 | 状态空间 | 生成路径 |
+| 顺序 | 项目 | 数据 | 学习对象 | 生成方式 |
 | :---: | --- | --- | --- | --- |
-| 01 | **VAE** | [`CHU-ZP/Modular-Vae`](https://github.com/CHU-ZP/Modular-Vae) | MNIST latent space | 采样 latent 后解码 |
-| 02 | **Diffusion** | [`CHU-ZP/Modular-Diffusion`](https://github.com/CHU-ZP/Modular-Diffusion) | CIFAR10 pixel 和 latent | 反转高斯加噪路径 |
-| 03 | **Discrete Diffusion** | [`CHU-ZP/Discrete-Diffusion`](https://github.com/CHU-ZP/Discrete-Diffusion) | 量化像素和二值 voxel | 反转类别转移链 |
-| 04 | **Flow Matching** | [`CHU-ZP/FlowMatching`](https://github.com/CHU-ZP/FlowMatching) | CIFAR10 pixel space | 积分学习到的速度场 |
+| 01 | [**VAE**](https://github.com/CHU-ZP/Modular-Vae) | MNIST | 后验、先验和解码器 | 采样 latent 后解码 |
+| 02 | [**Diffusion**](https://github.com/CHU-ZP/Modular-Diffusion) | CIFAR10 pixel 和 latent | noise、data 或 velocity prediction | 反转高斯加噪路径 |
+| 03 | [**Discrete Diffusion**](https://github.com/CHU-ZP/Discrete-Diffusion) | 量化 MNIST 和二值 ModelNet10 voxel | clean-token 概率 | 反转类别转移链 |
+| 04 | [**Flow Matching**](https://github.com/CHU-ZP/FlowMatching) | CIFAR10 pixel | 连续速度场 | 从噪声出发积分 ODE 到数据 |
 
-## 四个项目
+## 探索四个项目
 
 <table>
   <tr>
@@ -77,7 +77,7 @@
   </tr>
 </table>
 
-## 同一个 Lab，四种视角
+## 四种方法有何不同
 
 ```text
 VAE                 latent distribution  -> decoder
@@ -86,16 +86,16 @@ Discrete Diffusion  categorical path     -> exact discrete reverse chain
 Flow Matching       probability path     -> ODE integration
 ```
 
-四个项目都尽量让数学组件在代码中保持可见，并让每组实验一次只替换系统中的一个部分，方便观察模型、目标函数和 sampler 之间的关系。
+这些方法的差别不只是网络架构。它们选择了不同的状态空间、训练目标，以及从简单分布到生成样本的路径。把四个项目放在一起阅读，可以更清楚地看到这些建模选择。
 
-## 展示网站
+## 每个项目包含什么
 
-[`index.html`](index.html) 是这个概览的响应式网页版本，可以直接通过 GitHub Pages 发布。推送仓库后，进入 **Settings → Pages → Deploy from a branch → `main` / root**。
+每个仓库都包含：
 
-本地预览：
+- 对底层概率模型的简明说明；
+- 与公式直接对应的小型代码模块；
+- 配置驱动的实验和可复现命令；
+- 定性样本、定量结果与实现说明；
+- 英文和中文文档。
 
-```bash
-python -m http.server 8000
-```
-
-然后打开 `http://localhost:8000`。
+选择上面的任意项目，可以继续从数学概览进入代码实现和完整实验。
